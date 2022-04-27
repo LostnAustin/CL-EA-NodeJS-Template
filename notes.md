@@ -1,4 +1,8 @@
-curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, "data": { "city": "Austin" }'
+curl -X GET "http://dataservice.accuweather.com/currentconditions/v1/351193?apikey=qKAInUxdV1KUc9y76L7roGn6jWCasHWG&language=en-us"
+
+
+FULL DETAIL:
+curl -X GET "http://dataservice.accuweather.com/currentconditions/v1/351193?apikey=qKAInUxdV1KUc9y76L7roGn6jWCasHWG&language=en-us&details=true"
 
 
 
@@ -11,7 +15,25 @@ LOCATIONKEY FOR AUSTIN:
 *May have found a solution for alarms, WEATHER ALARMS API allows to set alerts:
 https://developer.accuweather.com/accuweather-weather-alarms-api/apis
 
-Endpoint: {351193}
+Endpoint for Austin from Locations API= {351193}
+
+
+
+
+walkthrough api:
+
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={ APIKEY }
+
+endpoint='weather'
+q='boston'
+appid='apiKey'
+
+
+
+
+
+
+
 
 
 
@@ -28,3 +50,4 @@ JobIDs:
 location-current-conditions: 7c276986e23b4b1c990d8659bca7a9d0
 current-conditions: 0ef6e60880e24cb69cb99a1cad76f15a
 location:d67df9cb479e4b2e897f2769d1b0ff8e
+
