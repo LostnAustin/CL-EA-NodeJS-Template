@@ -20,10 +20,6 @@ Server has not found a route matching the given URI
 Server encountered an unexpected condition which prevented it from fulfilling the request
 
 
-FULL DETAIL:
-curl -X GET "http://dataservice.accuweather.com/currentconditions/v1/351193?apikey=qKAInUxdV1KUc9y76L7roGn6jWCasHWG&language=en-us&details=true"
-
-
 
 https://developer.accuweather.com/apis
 
