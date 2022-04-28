@@ -12,8 +12,10 @@ const customError = (data) => {
 // with a Boolean value indicating whether or not they
 // should be required.
 const customParams = {
- city: ['q','351193', 'city', 'Austin', 351193],
-  endpoint: true
+
+  city: [ "q", "city", "town"],
+  endpoint: false
+  
 }
 
 const createRequest = (input, callback) => {
@@ -21,16 +23,20 @@ const createRequest = (input, callback) => {
   const validator = new Validator(callback, input, customParams)
   const jobRunID = validator.validated.id
   const endpoint = validator.validated.data.endpoint || 'weather'
-  const url = `http://dataservice.accuweather.com/currentconditions/v1/351193`
-  // const  q = validator.validated.data.city
+  const url = `https://api.openweathermap.org/data/2.5/${endpoint}`
+  const  q = validator.validated.data.city.toUpperCase()
   const appid = process.env.API_KEY;
+  const units = "imperial"
+
+  // console.log(appid);
 
   // const fsym = validator.validated.data.base.toUpperCase()
   // const tsyms = validator.validated.data.quote.toUpperCase()
 
   const params = {
-    // q,
-    appid
+    q,
+    appid,
+    units
   }
 
   // This is where you would add method and headers
@@ -50,7 +56,7 @@ const createRequest = (input, callback) => {
       // It's common practice to store the desired value at the top-level
       // result key. This allows different adapters to be compatible with
       // one another.
-      response.data.result = Requester.validateResultNumber(response.data, ['WeatherText'])
+      response.data.result = Requester.validateResultNumber(response.data, ['main','temp'])
       // (response.data, ['Temperature','Imperial', 'Value'])
       callback(response.status, Requester.success(jobRunID, response))
     })

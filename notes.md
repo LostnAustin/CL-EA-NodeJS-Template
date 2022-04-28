@@ -1,4 +1,23 @@
-curl -X GET "http://dataservice.accuweather.com/currentconditions/v1/351193?apikey=qKAInUxdV1KUc9y76L7roGn6jWCasHWG&language=en-us"
+
+
+curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, "data": { "city": "Austin"} }'
+
+Response Error Details
+HTTP CodeError CodeDescription
+400
+Request had bad syntax or the parameters supplied were invalid
+
+401
+Unauthorized. API authorization failed
+
+403
+Unauthorized. You do not have permission to access this endpoint
+
+404
+Server has not found a route matching the given URI
+
+500
+Server encountered an unexpected condition which prevented it from fulfilling the request
 
 
 FULL DETAIL:
