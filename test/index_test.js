@@ -3,13 +3,13 @@ const createRequest = require('../index.js').createRequest
 
 describe('createRequest', () => {
   const jobID = '1'
+  // const city = "Austin"
+  const city = [ "q", "city", "town"]
 
   context('successful calls', () => {
     const requests = [
-      { name: 'id not supplied', testData: { data: { base: 'ETH', quote: 'USD' } } },
-      { name: 'base/quote', testData: { id: jobID, data: { base: 'ETH', quote: 'USD' } } },
-      { name: 'from/to', testData: { id: jobID, data: { from: 'ETH', to: 'USD' } } },
-      { name: 'coin/market', testData: { id: jobID, data: { coin: 'ETH', market: 'USD' } } }
+    
+      
     ]
 
     requests.forEach(req => {
@@ -28,12 +28,11 @@ describe('createRequest', () => {
 
   context('error calls', () => {
     const requests = [
-      { name: 'empty body', testData: {} },
+      { name: 'endpoint', testData: {} },
       { name: 'empty data', testData: { data: {} } },
-      { name: 'base not supplied', testData: { id: jobID, data: { quote: 'USD' } } },
-      { name: 'quote not supplied', testData: { id: jobID, data: { base: 'ETH' } } },
-      { name: 'unknown base', testData: { id: jobID, data: { base: 'not_real', quote: 'USD' } } },
-      { name: 'unknown quote', testData: { id: jobID, data: { base: 'ETH', quote: 'not_real' } } }
+      { name: 'city', testData: { id: jobID, data: { lat: '32', long: '-97' } } },
+      { name: 'unknown city', testData: { id: jobID, data: { city: 'not_real' } } },
+      { name: 'wrong units', testData: { id: jobID, data: { main: 'Metric' } } }
     ]
 
     requests.forEach(req => {
