@@ -28,10 +28,7 @@ const createRequest = (input, callback) => {
   const appid = process.env.API_KEY;
   const units = "imperial"
 
-  // console.log(appid);
-
-  // const fsym = validator.validated.data.base.toUpperCase()
-  // const tsyms = validator.validated.data.quote.toUpperCase()
+ 
 
   const params = {
     q,
@@ -39,11 +36,7 @@ const createRequest = (input, callback) => {
     units
   }
 
-  // This is where you would add method and headers
-  // you can add method like GET or POST and add it to the config
-  // The default is GET requests
-  // method = 'get' 
-  // headers = 'headers.....'
+
   const config = {
     url,
     params
@@ -56,7 +49,9 @@ const createRequest = (input, callback) => {
       // It's common practice to store the desired value at the top-level
       // result key. This allows different adapters to be compatible with
       // one another.
-      response.data.result = Requester.validateResultNumber(response.data, ['main','temp'])
+      response.data.result = Requester.validateResultNumber(response.data, ['main','temp', 'humidity'])
+
+
       // (response.data, ['Temperature','Imperial', 'Value'])
       callback(response.status, Requester.success(jobRunID, response))
     })

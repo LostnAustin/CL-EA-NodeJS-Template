@@ -1,6 +1,13 @@
-
+to run, 
+1. export the API_KEY from terminal
+2. yarn start
+3. from separate terminal:
 
 curl -X POST -H "content-type:application/json" "http://localhost:8080/" --data '{ "id": 0, "data": { "city": "Austin"} }'
+
+
+
+
 
 Response Error Details
 HTTP CodeError CodeDescription
@@ -21,16 +28,9 @@ Server encountered an unexpected condition which prevented it from fulfilling th
 
 
 
-https://developer.accuweather.com/apis
+from market.link, Found the Iron Node Kovan OpenMaps price feed
+https://market.link/adapters/4b215858-a2c3-44ab-92ec-9e1e980da537
 
-Use Locations API call to get location key, to use for Current Conditions API
-LOCATIONKEY FOR AUSTIN: 
-"Key": "351193",
-*Successfully called API for ATX weather conditions at accuweather dev
-*May have found a solution for alarms, WEATHER ALARMS API allows to set alerts:
-https://developer.accuweather.com/accuweather-weather-alarms-api/apis
-
-Endpoint for Austin from Locations API= {351193}
 
 
 
@@ -44,6 +44,7 @@ q='boston'
 appid='apiKey'
 
 
+link API external adapter tutorial: https://www.youtube.com/watch?v=65NhO5xxSZc&t=0s
 
 
 
@@ -51,7 +52,7 @@ appid='apiKey'
 
 
 
-
+<!-- 
 Testnet and Mainnet options for AccuWeather/Link contract:
 Mainnets: Eth, Matic, Arbitrum
 Testnets: ONLY KOVAN
@@ -65,4 +66,7 @@ JobIDs:
 location-current-conditions: 7c276986e23b4b1c990d8659bca7a9d0
 current-conditions: 0ef6e60880e24cb69cb99a1cad76f15a
 location:d67df9cb479e4b2e897f2769d1b0ff8e
+
+
+ -->
 
